@@ -12,14 +12,18 @@ int main() {
         cin >> a[i];
     }
 
-    for(int i = 0; i < n - 1; i++) {
-        if(a[i] < a[i + 1])
-            ans[i] = a[i + 1];
-        else
-            ans[i] = 0;
-    }
+    for(int i = 0; i < n; i++) {
 
-    ans[n - 1] = 0;
+        ans[i] = 0;
+
+        for(int j = i + 1; j < n; j++) {
+
+            if(a[j] > a[i]) {
+                ans[i] = a[j];
+                break;
+            }
+        }
+    }
 
     for(int i = 0; i < n; i++) {
         cout << ans[i] << " ";
